@@ -1,10 +1,10 @@
-#Supuestos o puntos de partida para el abordaje del proyecto Steady, ready, go!
+#Supuestos o puntos de partida para el abordaje del proyecto Steady, ready, go!#
 
 1. El archivo productsDB.txt aloja la base de datos local de productos.
 2. El archivo productsDB.txt existe y hace parte del árbol de archivos del proyecto.
 3. El archivo productsDB.txt está vacío, es decir, no hay productos en principio.
 
-#Requerimientos del proyecto Steady, ready, go!
+#Requerimientos del proyecto Steady, ready, go!#
 
 1. Al hacer GET al endpoint /api/v1/products/ debe devolver toda la lista de productos
    existentes.
