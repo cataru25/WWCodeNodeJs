@@ -1,1 +1,1 @@
-[]
+[{"name":"Correa","description":"Cuero vacuno con herrajes de material reciclado","price":100,"quantity":3,"category":"Accesorios","id":"edb202be-8c82-4366-a0f2-dfed737137a8"}]

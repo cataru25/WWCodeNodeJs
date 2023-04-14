@@ -76,15 +76,15 @@ app.patch("/api/v1/products/:productId", (req, res) => {
 // Método DELETE
 app.delete("/api/v1/products/:productId", (req, res) => {
   const { productId } = req.params;
-  const deletedProduct = productsDB.find((product) => product.id === productId);
-  const deletedProductName = deletedProduct.name;
-  const productsAfterDelete = productsDB.filter(
-    (product) => product.id !== productId
+  const deletedProductIndex = productsDB.findIndex(
+    (product) => product.id === productId
   );
-  if (!deletedProduct) {
+  if (deletedProductIndex < 0) {
     return res.status(404).json("El ID que ha ingresado es inválido");
   }
-  saveProductsDB(productsAfterDelete);
+  const deletedProductName = productsDB[deletedProductIndex].name;
+  productsDB.splice(deletedProductIndex, 1);
+  saveProductsDB(productsDB);
   res.json(`El producto denominado ${deletedProductName} fue eliminado`);
 });
 
@@ -99,3 +99,5 @@ app.listen(PORT, () => {
 
 // 2. Internamente los productos se deben guardar en un archivo .txt para
 // asegurar una persistencia de los datos, incluso si se reinicia la aplicación.
+
+// Este requisito queda cubierto por la implementación
