@@ -1,0 +1,23 @@
+[
+   {
+      "name":"Reloj",
+      "description":"Pulso de cuero y mica con apliques de oro y crital de alta gama",
+      "price":900,
+      "quantity":2,
+      "category":"Accesorios"
+   },
+   {
+      "name":"Correa",
+      "description":"Cuero vacuno con herrajes de material reciclado",
+      "price":100,
+      "quantity":3,
+      "category":"Accesorios"
+   },
+   {
+      "name":"Sombrero",
+      "description":"Ala ancha hecho con fique y a mano",
+      "price":1000,
+      "quantity":3,
+      "category":"Accesorios"
+   }
+]
