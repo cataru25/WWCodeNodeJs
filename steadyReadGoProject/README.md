@@ -3,6 +3,7 @@
 1. El archivo productsDB.txt aloja la base de datos local de productos.
 2. El archivo productsDB.txt existe y hace parte del árbol de archivos del proyecto.
 3. El archivo productsDB.txt está vacío, es decir, no hay productos en principio.
+4. Todas las peticiones fueron probadas usando Postman y podrá ser compartida la colección que contiene el set de request.
 
 **Requerimientos del proyecto Steady, ready, go!**
 
