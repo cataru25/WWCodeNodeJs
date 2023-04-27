@@ -6,7 +6,7 @@ Muestra todos los elementos de la colección.
 
 Acción | Query | Evidencia 
 :--- | :--- | :---
-GET | ` db.Products.find();`| ![](./evidences/getAllProducts.PNG) 
+GET | ` db.Products.find();`| ![](./evidences/getAllProduct.PNG) 
 
 Selecciona un elemento específico de la colección y muéstralo.
 
