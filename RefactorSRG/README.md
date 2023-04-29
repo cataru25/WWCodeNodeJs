@@ -9,8 +9,4 @@ Acción | Query | Evidencia
 GET | ` db.Products.find();`| ![](./evidences/getAllProduct.PNG)
 GET by ID | ` db.Products.find({id:1});`| ![](./evidences/getOne.PNG)
 PATCH | ` db.Products.updateOne({id: 1}, {$set: {price: 50}});`| ![](./evidences/updateOne.PNG)
-
-
-
-Elimina uno de los elementos de la colección.
-
+DELETE | ` db.Products.deleteOne({id: 3});`| ![](./evidences/deleteOne.PNG)
