@@ -6,8 +6,7 @@ exports.errorHandler = (err, _, res, next) => {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
   // The HTTP 404 Not Found response status code indicates that
   // the server cannot find the requested resource.
-  res.status(500);
-  res.render("error", { error: err });
+  res.status(500).send(`error { error: ${err?.message} }`);
 };
 
 exports.notFoundHandler = (req, res, _) => {

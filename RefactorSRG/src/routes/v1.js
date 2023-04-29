@@ -4,7 +4,6 @@ const { healthCheck, welcomePage } = require("../controllers/app.controller");
 const productsRouter = express.Router();
 const {
   validateNewProduct,
-  validateDeleteProduct,
   validateUpdateProduct,
 } = require("../middlewares/validations");
 
@@ -21,10 +20,6 @@ productsRouter.patch(
   validateUpdateProduct,
   controller.updateProduct
 );
-productsRouter.delete(
-  "/api/v1/products/:productId",
-  validateDeleteProduct,
-  controller.deleteProduct
-);
+productsRouter.delete("/api/v1/products/:productId", controller.deleteProduct);
 
 module.exports = productsRouter;
