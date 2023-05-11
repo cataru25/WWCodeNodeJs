@@ -6,7 +6,7 @@ Muestra todos los elementos de la colección.
 
 Acción | Query | Evidencia 
 :--- | :--- | :---
-GET | ` db.Products.find();`| ![](./evidences/getAllProduct.PNG)
-GET by ID | ` db.Products.find({id:1});`| ![](./evidences/getOne.PNG)
-PATCH | ` db.Products.updateOne({id: 1}, {$set: {price: 50}});`| ![](./evidences/updateOne.PNG)
-DELETE | ` db.Products.deleteOne({id: 3});`| ![](./evidences/deleteOne.PNG)
+GET | ` db.Products.find();`| ![](./docs/getAllProduct.PNG)
+GET by ID | ` db.Products.find({id:1});`| ![](./docs/getOne.PNG)
+PATCH | ` db.Products.updateOne({id: 1}, {$set: {price: 50}});`| ![](./docs/updateOne.PNG)
+DELETE | ` db.Products.deleteOne({id: 3});`| ![](./docs/deleteOne.PNG)
