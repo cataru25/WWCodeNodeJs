@@ -1,6 +1,6 @@
-const User = require("../models/clientModel");
+const { User } = require("../models");
 
-exports.getAllUsers = async (req, res, next) => {
+const getAllUsers = async (req, res, next) => {
   const { offset, limit } = req.query;
   try {
     const users = await User.findAll({ offset, limit });
@@ -8,4 +8,8 @@ exports.getAllUsers = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+module.exports = {
+  getAllUsers,
 };

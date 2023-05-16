@@ -1,5 +1,4 @@
-const crypto = require("crypto");
-const { Product } = require("../models/models");
+const { Product } = require("../models/product.model");
 
 // GET Method
 const getAllProducts = async (_, res) => {

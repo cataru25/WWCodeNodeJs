@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require("sequelize");
-// Debo importar en la siguiente línea postgresql
 const sequelize = require("../utils/postgresql");
 
 class User extends Model {}
