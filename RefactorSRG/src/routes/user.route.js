@@ -8,14 +8,9 @@ const BASE_USERS = "/api/v1/users";
 usersRouter.get("/", welcomePage);
 usersRouter.get("/health", healthCheck);
 usersRouter.get(BASE_USERS, controller.getAllUsers);
-// usersRouter.get(controller.getAllUsers);
-//   .post(usersController.createUser);
-
-// router
-//   .route("/:id")
-//   .get(usersController.getUserById)
-//   .put(usersController.updateUser)
-//   .patch(usersController.updateUser)
-//   .delete(usersController.deleteUser);
+usersRouter.get(`${BASE_USERS}/:productId`, controller.getOneUser);
+usersRouter.post(BASE_USERS, controller.createUser);
+usersRouter.patch(`${BASE_USERS}/:productId`, controller.updateUser);
+usersRouter.delete(`${BASE_USERS}/:productId`, controller.deleteUser);
 
 module.exports = usersRouter;
