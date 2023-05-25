@@ -1,15 +1,37 @@
 const { Product } = require("../models/product.model");
 
 // GET Method
-const getAllProducts = async (_, res) => {
-  const allProducts = await Product.find();
-  res.json(allProducts);
+const getAllProducts = async (_, res, next) => {
+  try {
+    const allProducts = await Product.find();
+    res.status(200).json(allProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET Method by ID
+const getProductId = async (req, res, next) => {
+  const { productId } = req.params;
+  try {
+    const productById = await Product.find({ _id: productId });
+    if (Product.length === 0) {
+      res.status(404).json({
+        status: 404,
+        message: "The product does not exist",
+      });
+    } else {
+    }
+    res.status(200).json(productById);
+  } catch (error) {
+    next(error);
+  }
 };
 
 // POST Method
 const addProduct = async (req, res, next) => {
+  const newProduct = new Product(req.body);
   try {
-    const newProduct = new Product(req.body);
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
@@ -19,12 +41,19 @@ const addProduct = async (req, res, next) => {
 
 // PATCH Method
 const updateProduct = async (req, res, next) => {
+  const { productId } = req.params;
   try {
-    const { productId } = req.params;
     const product = await Product.findByIdAndUpdate(productId, req.body, {
       new: true,
     });
-    res.json(product);
+    if (product === null) {
+      res.status(404).json({
+        status: 404,
+        message: "The product does not exist",
+      });
+    } else {
+      res.json(product);
+    }
   } catch (error) {
     next(error);
   }
@@ -32,9 +61,16 @@ const updateProduct = async (req, res, next) => {
 
 // DELETE Method
 const deleteProduct = async (req, res, next) => {
+  const { productId } = req.params;
   try {
-    const { productId } = req.params;
     const deletedProduct = await Product.findByIdAndRemove(productId);
+    if (deletedProduct === null) {
+      res.status(404).json({
+        status: 404,
+        message: "The product does not exist",
+      });
+    } else {
+    }
     res.json({
       message: `El producto denominado ${deletedProduct?.name} fue eliminado`,
     });
@@ -45,6 +81,7 @@ const deleteProduct = async (req, res, next) => {
 
 module.exports = {
   getAllProducts,
+  getProductId,
   addProduct,
   updateProduct,
   deleteProduct,

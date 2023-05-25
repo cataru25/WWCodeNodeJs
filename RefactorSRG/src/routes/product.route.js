@@ -9,6 +9,7 @@ const BASE_PRODUCTS = "/api/v1/products";
 productsRouter.get("/", welcomePage);
 productsRouter.get("/health", healthCheck);
 productsRouter.get(BASE_PRODUCTS, controller.getAllProducts);
+productsRouter.get(`${BASE_PRODUCTS}/:productId`, controller.getProductId);
 productsRouter.post(BASE_PRODUCTS, validateNewProduct, controller.addProduct);
 productsRouter.patch(
   `${BASE_PRODUCTS}/:productId`,
