@@ -6,13 +6,14 @@ const express = require("express"),
   PORT = process.env.PORT || 3000;
 
 const { errorHandler, notFoundHandler } = require("./middlewares");
-const { Product, User } = require("./routes");
+const { Product, User, Login } = require("./routes");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", Product);
 app.use("/", User);
+app.use("/", Login);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
