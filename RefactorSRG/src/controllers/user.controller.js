@@ -15,6 +15,14 @@ const getOneUser = async (req, res, next) => {
   try {
     if (productId) {
       const user = await User.findOne({ where: { id: productId } });
+      if (user) {
+        res.json(user);
+      } else {
+        res.status(404).json({
+          status: 404,
+          message: "ID not found. The user does not exist.",
+        });
+      }
       res.json(user);
     } else {
       res.status(404).json({

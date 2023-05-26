@@ -18,7 +18,7 @@ const getProductId = async (req, res, next) => {
     if (Product.length === 0) {
       res.status(404).json({
         status: 404,
-        message: "The product does not exist",
+        message: "ID not found. The product does not exist",
       });
     } else {
     }
@@ -49,7 +49,7 @@ const updateProduct = async (req, res, next) => {
     if (product === null) {
       res.status(404).json({
         status: 404,
-        message: "The product does not exist",
+        message: "ID not found. The product does not exist",
       });
     } else {
       res.json(product);
@@ -67,12 +67,13 @@ const deleteProduct = async (req, res, next) => {
     if (deletedProduct === null) {
       res.status(404).json({
         status: 404,
-        message: "The product does not exist",
+        message: "ID not found. The product does not exist",
       });
     } else {
     }
-    res.json({
-      message: `El producto denominado ${deletedProduct?.name} fue eliminado`,
+    res.status(200).json({
+      status: 200,
+      message: `${deletedProduct?.name} has been deleted`,
     });
   } catch (error) {
     next(error);
